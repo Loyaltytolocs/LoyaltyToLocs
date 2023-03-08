@@ -1,0 +1,142 @@
+
+
+.login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #3a1b01;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    font-size: 22px;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #050101;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #ead000;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #623304;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #ead000;
+    font-size: 12px;
+}
+
+.login-box span {
+    display: block;
+    position: relative;
+    height: 2px;
+    width: 100%;
+    background: #050101;
+    margin-bottom: 20px;
+}
+
+.login-box span:before,
+.login-box span:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    background: #3a1b01;
+    transition: 0.5s;
+}
+
+.login-box span:before {
+    left: 50%;
+}
+
+.login-box span:after {
+    right: 50%;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #050101;
+    background: #623304;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.login-box a:hover {
+    background: transparent;
+}
+
+.login-box a span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.login-box a span:before,
+.login-box a span:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background: #ead000;
+    transition: 0.5s;
+}
+
+.login-box a span:before {
+    left: 0;
+    bottom: 0;
+}
+
+.login-box a span:after {
+    right: 0;
+    bottom: 0;
+}
+
+.login-box a:hover span:before,
+.login-box a:hover span:after {
+    width: 100%;
+}
+
+.login-box a:hover span:before {
+    left: 0;
+}
+
+.login-box a:hover span:after {
+    right: 0;
+}

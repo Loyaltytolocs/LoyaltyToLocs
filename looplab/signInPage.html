@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    /* style for the container */
+    .container {
+      border: 2px solid #050101;
+      box-shadow: 0 0 10px #cba484;
+      padding: 20px;
+      margin: 50px auto;
+      background: linear-gradient(to bottom, #3a1b01, #ead000);
+      border-radius: 10px;
+      max-width: 500px;
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    /* style for the form inputs */
+    input[type=text], input[type=password] {
+      border: none;
+      border-bottom: 2px solid #ead000;
+      background: transparent;
+      color: #050101;
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      width: 100%;
+    }
+
+    /* style for the submit button */
+    input[type=submit] {
+      background: #ead000;
+      color: #000;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    body {
+      background-color: #623304;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Registration Form</h1>
+  <form name="registrationForm" method="post" action="Home.html" onsubmit="return validateForm()">
+    <label for="userName">Username:</label>
+    <input type="text" id="userName" name="userName" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+    <body>
+    <p>Not Family Yet? <a href="registrationPage.html"> Click here</a> To Register.</p>
+    </body>
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    var username = document.forms["registrationForm"]["userName"].value;
+    var password = document.forms["registrationForm"]["password"].value;
+
+    // Regular expression patterns
+    var usernamePattern = /^[a-zA-Z0-9_-]{3,16}$/;
+    var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    // Check if the username and password match the pattern
+    if (!usernamePattern.test(username)) {
+      alert("Please enter a valid username.");
+      return false;
+    }
+    if (!passwordPattern.test(password)) {
+      alert("Please enter a valid password (at least 8 characters, one uppercase letter, one lowercase letter, and one number).");
+      return false;
+    }
+
+    // If both username and password are valid, return true
+    return true;
+  }
+</script>
+</body>
+</html>

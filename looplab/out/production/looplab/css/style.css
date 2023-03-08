@@ -1,0 +1,62 @@
+
+
+
+/* colors for background. */
+body {
+  background: #3a1b01;
+  color: #cba484;
+}
+.container1 {
+  width: 100%;
+  margin: 0 -10px;
+}
+
+.my-Video video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* navbar */
+.navbar {
+  border-bottom: #050101 7px solid;
+  opacity: 0.8;
+}
+
+/* navbar links */
+#home-section .dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+  background: rgba(9, 2, 2, 0.7);
+}
+
+/* home section */
+#home-section .home-inner {
+  padding-top: 25px;
+}
+
+/* home section */
+#home-section .card-form {
+  opacity: 0.8;
+}
+
+/* home section */
+#home-section .fas,
+#create-section .fas {
+  color: #050101;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* explore section */
+#explore-section .fas,
+#share-section .fas {
+  background: #3a1b01;
+  color: #fff;
+  padding: 50px;
+  border-radius: 50px;
+}

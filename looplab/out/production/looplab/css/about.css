@@ -1,0 +1,79 @@
+
+
+
+/* colors for background. */
+body {
+    background: #3a1b01;
+    color: #cba484;
+}
+
+.my-image {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    display: block;
+    border-radius: 200%;
+    border: 6px solid #050101;
+    box-shadow: 0 0 30px #ead000;
+    transition: box-shadow 3s ease-in-out;
+}
+
+/* my image hover */
+.my-image:hover {
+    box-shadow: 0 0 20px #0c218d;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* glow animation */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px #eeff04;
+    }
+    to {
+        box-shadow: 0 0 20px #a60303;
+    }
+}
+
+/* navbar */
+.navbar {
+    border-bottom: #050101 7px solid;
+    opacity: 0.8;
+}
+
+/* navbar links */
+#home-section .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(9, 2, 2, 0.7);
+}
+
+/* home section */
+#home-section .home-inner {
+    padding-top: 25px;
+}
+
+/* home section */
+#home-section .card-form {
+    opacity: 0.8;
+}
+
+/* home section */
+#home-section .fas,
+#create-section .fas {
+    color: #050101;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* explore section */
+#explore-section .fas,
+#share-section .fas {
+    background: #3a1b01;
+    color: #fff;
+    padding: 50px;
+    border-radius: 50%;
+}

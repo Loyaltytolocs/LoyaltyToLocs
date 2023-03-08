@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Shopping Cart</title>
+    <link rel="stylesheet" href="css/ShoppingCart.css">
+</head>
+<body>
+<section id="explore-section" class="bg-light text-muted py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="img/Ltl.jpg" alt="" class="img-fluid mb-2">
+            </div>
+            <div class="col-md-6">
+                <h3>Hair Products Available</h3>
+                <ol>
+                    <li>Growth Oil</li>
+                    <li>Loc Gel</li>
+                    <li>Loc Cream</li>
+                    <br />
+                    <select id="hair-products">
+                        <option>Choose Products...</option>
+                        <option value="1">Growth Oil $30.00</option>
+                        <option value="2">Loc Gel $25.00</option>
+                        <option value="3">Loc Cream $25.00</option>
+                        <option value="4">Oil spray $20.00</option>
+                    </select>
+                    <button id="add-to-cart">Add to Cart</button>
+                    <br>
+                </ol>
+
+                <h3>Pure Silk Night Accessories</h3>
+                <table>
+                    <tr><th>Pure Silk Bonnets</th><th>Pure Silk Durags</th><th>Pure Silk Loc Caps</th><th>Pure Silk Pillow Cases</th></tr>
+                    <tr><td>$15.00<input type="checkbox" id="silk-bonnets"></td><td>$15.00<input type="checkbox" id="silk-durags"></td><td>$20.00<input type="checkbox" id="silk-loc-caps"></td><td>$45.00<input type="checkbox" id="silk-pillow-cases"></td></tr>
+                </table>
+                <button id="add-to-cart-silk">Add to Cart</button>
+                <br>
+                <hr>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Script for the cart object and add to cart button -->
+<script>
+    // Cart object to store the products and quantities
+    var cart = {};
+
+    // Add to cart button for hair products
+    var addToCartBtn = document.getElementById("add-to-cart");
+    addToCartBtn.addEventListener("click", function() {
+        var selectEl = document.getElementById("hair-products");
+        var selectedProduct = selectEl.options[selectEl.selectedIndex].value;
+        if (cart[selectedProduct]) {
+            cart[selectedProduct] += 1;
+        }
+        else {
+            cart[selectedProduct] = 1;
+        }
+        console.log(cart); // For testing purposes only
+        updateCartDisplay();
+    });
+
+    // Add to cart button for silk products
+    var addToCartSilkBtn = document.getElementById("add-to-cart-silk");
+    addToCartSilkBtn.addEventListener("click", function() {
+        var silkBonnetsCheckbox = document.getElementById("silk-bonnets");
+        var silkDuragsCheckbox = document.getElementById("silk-durags");
+        var silkLocCapsCheckbox = document.getElementById("silk-loc-caps");
+        var silkPillowCasesCheckbox = document.getElementById("silk-pillow-cases");
+        if (silkBonnetsCheckbox.checked) {
+            if (cart["silk-bonnets"]) {
+                cart["silk-bonnets"] += 1;
+
+
+
+                const products = []; // array to store product data
+
+                // display existing products when page loads
+                window.addEventListener('load', () => {
+                displayProducts();
+            });
+
+                // handle form submission to add new product
+                const addProductForm = document.getElementById('add-product-form');
+                addProductForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const productName = document.getElementById('product-name').value;
+                const productPrice = document.getElementById('product-price').value;
+                const product = { name: productName, price: parseFloat(productPrice) };
+                products.push(product);
+                addProductToList(product);
+                addProductForm.reset();
+            });
+
+                // add product to the HTML list
+                function addProductToList(product) {
+                const productListItem = document.createElement('li');
+                productListItem.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+                document.getElementById('product-list').appendChild(productListItem);
+            }
+
+                // display all products in the HTML list
+                function displayProducts() {
+                    products.forEach((product) => {
+                        addProductToList(product);
+                    });}}}}
+
+</script>

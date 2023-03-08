@@ -1,0 +1,73 @@
+/* Basic styles */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Specific styles for explore section */
+
+#explore-section {
+    background-color: #623304;
+}
+
+#explore-section h3 {
+    margin-top: 0;
+}
+
+#explore-section ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+#explore-section select {
+    margin-bottom: 10px;
+}
+
+#explore-section table {
+    margin-bottom: 10px;
+}
+
+#explore-section button {
+    margin-bottom: 20px;
+}/* Basic styles */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Specific styles for explore section */
+
+#explore-section {
+    background-color: #623304;
+}
+
+#explore-section h3 {
+    margin-top: 0;
+}
+
+#explore-section ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+#explore-section select {
+    margin-bottom: 10px;
+}
+
+#explore-section table {
+    margin-bottom: 10px;
+}
+
+#explore-section button {
+    margin-bottom: 20px;
+}
