@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Shopping Cart</title>
+    <link rel="stylesheet" href="css/ShoppingCart.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="main-nav">
+    <div class="container">
+        <a href="Home.html" class="navbar-brand">LOYALTY TO LOCS</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="FrontPage.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://localhost:8097/web-customer-tracker/customer/list" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://localhost:8097/spring-crm-rest/" class="nav-link">Rest</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://localhost:8097/ex06-jdbc-test/ClientsControllerServlet" class="nav-link">JDBC</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Shopping Cart.html" class="nav-link">Demo Cart</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="explore-section" class="bg-light text-muted py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="img/Ltl.jpg" alt="" class="img-fluid mb-2">
+            </div>
+            <div style="text-align: center;">
+            <div class="col-md-6">
+                <h3>Hair Products Available</h3>
+                <ol>
+                    <tr>
+                        <th>Growth Oil</th>
+                        <th>Loc Gel</th>
+                        <th>Loc Butter</th>
+                        <th>Oil Spray</th>
+                    </tr>
+                    <br />
+                    <select id="hair-products">
+                        <option>Choose Products...</option>
+                        <option value="1">Growth Oil $30.00</option>
+                        <option value="2">Loc Gel $25.00</option>
+                        <option value="3">Loc Cream $25.00</option>
+                        <option value="4">Oil spray $20.00</option>
+                    </select>
+                    <button id="add-to-cart">Add to Cart</button>
+                    <br>
+                </ol>
+
+                <h3>Pure Silk Night Accessories</h3>
+                <table>
+                    <tr>
+                        <th>Pure Silk Bonnets</th>
+                        <th>Pure Silk Durags</th>
+                        <th>Pure Silk Loc Caps</th>
+                        <th>Pure Silk Pillow Cases</th>
+                    </tr>
+                    <tr>
+                        <td>$15.00<input type="checkbox" id="silk-bonnets"></td>
+                        <td>$15.00<input type="checkbox" id="silk-durags"></td>
+                        <td>$20.00<input type="checkbox" id="silk-loc-caps"></td>
+                        <td>$45.00<input type="checkbox" id="silk-pillow-cases"></td>
+                    </tr>
+                </table>
+                <button id="add-to-cart-silk">Add to Cart</button>
+                <br>
+                <hr>
+                <hr>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+<section id="cart-section" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="cart-container">
+                    <h3>Cart</h3>
+                    <ul>
+                        <li>Your cart is currently empty.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Cart object to store the products and quantities
+    var cart = {};
+    var products = {
+        "1": { name: "Growth Oil", price: 30 },
+        "2": { name: "Loc Gel", price: 25 },
+        "3": { name: "Loc Cream", price: 25 },
+        "4": { name: "Oil spray", price: 20 },
+        "silk-bonnets": { name: "Pure Silk Bonnets", price: 15 },
+        "silk-durags": { name: "Pure Silk Durags", price: 15 },
+        "silk-loc-caps": { name: "Pure Silk Loc Caps", price: 20 },
+        "silk-pillow-cases": { name: "Pure Silk Pillow Cases", price: 45 }
+    };
+
+    // Add to cart button for hair products
+    var addToCartBtn = document.getElementById("add-to-cart");
+    addToCartBtn.addEventListener("click", function() {
+        var selectEl = document.getElementById("hair-products");
+        var selectedProduct = selectEl.options[selectEl.selectedIndex].value;
+        if (cart[selectedProduct]) {
+            cart[selectedProduct] += 1;
+        } else {
+            cart[selectedProduct] = 1;
+        }
+        updateCartDisplay();
+    });
+
+    // Add to cart button for silk products
+    var addToCartSilk = document.getElementById("add-to-cart-silk");
+    addToCartSilk.addEventListener("click", function() {
+        var silkItems = ["silk-bonnets", "silk-durags", "silk-loc-caps", "silk-pillow-cases"];
+        silkItems.forEach(function(item) {
+            var checkbox = document.getElementById(item);
+            if (checkbox.checked) {
+                if (cart[item]) {
+                    cart[item] += 1;
+                } else {
+                    cart[item] = 1;
+                }
+            }
+        });
+        updateCartDisplay();
+    });
+    function calculateTotal() {
+        var total = 0;
+        for (var productId in cart) {
+            if (cart.hasOwnProperty(productId)) {
+                var price = products[productId].price;
+                var quantity = cart[productId];
+                total += price * quantity;
+            }
+        }
+        return total;
+    }
+    function updateCartDisplay() {
+        var cartContainer = document.getElementById("cart-container");
+        var cartList = cartContainer.querySelector("ul");
+
+        // Clear the current cart display
+        cartList.innerHTML = "";
+
+        // Iterate through the cart items
+        for (var productId in cart) {
+            if (cart.hasOwnProperty(productId)) {
+                var productName = products[productId].name;
+                var quantity = cart[productId];
+
+                // Add a new list item for the product
+                var listItem = document.createElement("li");
+                listItem.innerText = productName + " x " + quantity;
+                cartList.appendChild(listItem);
+            }
+        }
+
+        // Display the total
+        var total = calculateTotal();
+        var totalItem = document.createElement("li");
+        totalItem.innerText = "Total: $" + total.toFixed(2);
+        cartList.appendChild(totalItem);
+
+        // If the cart is empty, display a message
+        if (cartList.children.length === 0) {
+            var emptyMessage = document.createElement("li");
+            emptyMessage.innerText = "Your cart is currently empty.";
+            cartList.appendChild(emptyMessage);
+        }
+    }
+
+
+</script>
+</body>
+</html>
