@@ -8,7 +8,7 @@ body {
 }
 
 .my-image {
-    width: 80%;
+    width:50%;
     height: auto;
     margin: auto;
     display: block;
@@ -16,6 +16,63 @@ body {
     border: 6px solid #050101;
     box-shadow: 0 0 30px #ead000;
     transition: box-shadow 3s ease-in-out;
+}
+/* navbar *//* navbar */
+.navbar {
+    border-bottom: #050101 7px solid;
+    opacity: 0.8;
+    width: 100%;
+}
+
+nav.navbar {
+    margin-bottom: 0;
+}
+
+/* navbar links */
+#home-section .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(9, 2, 2, 0.7);
+}
+
+/* explore section */
+#explore-section .fas,
+#share-section .fas {
+    background: #3a1b01;
+    color: #fff;
+    padding: 50px;
+    border-radius: 50%;
+}
+
+/* sign-in and registration forms */
+.sign-in-form,
+.registration-form {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.sign-in-btn,
+.registration-btn {
+    background: #ead000;
+    border: none;
+    border-radius: 25px;
+    color: #3a1b01;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+.sign-in-btn:hover,
+.registration-btn:hover {
+    background: #3a1b01;
+    color: #ead000;
+    cursor: pointer;
 }
 
 /* my image hover */
@@ -76,4 +133,27 @@ body {
     color: #fff;
     padding: 50px;
     border-radius: 50%;
+}
+.sign-in-form, .registration-form {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.sign-in-btn, .registration-btn {
+    background: #ead000;
+    border: none;
+    border-radius: 25px;
+    color: #3a1b01;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+.sign-in-btn:hover, .registration-btn:hover {
+    background: #3a1b01;
+    color: #ead000;
+    cursor: pointer;
 }

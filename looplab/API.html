@@ -1,0 +1,173 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Save Customer</title>
+
+  <style>
+    /* Style from the first code snippet */
+
+    /* style for the container */
+    #wrapper {
+      border: 2px solid #050101;
+      box-shadow: 0 0 10px #cba484;
+      padding: 20px;
+      margin: 50px auto;
+      background: linear-gradient(to bottom, #3a1b01, #ead000);
+      border-radius: 10px;
+      max-width: 500px;
+      color: #050101;
+      font-size: 20px;
+      text-align: center;
+      animation: shake 0.5s ease-in-out;
+      animation-iteration-count: 1;
+      animation-delay: 1s;
+    }
+
+    /* style for the form inputs */
+    input[type=text] {
+      border: none;
+      border-bottom: 2px solid #623304;
+      background: transparent;
+      color: #ffffff;
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      width: 100%;
+      transition: border-bottom-color 0.5s;
+    }
+
+    input[type=text]:focus {
+      border-bottom-color: #ffa500;
+    }
+
+    /* style for the submit button */
+    input[type=submit] {
+      background: #623304;
+      color: #ead000;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s;
+    }
+
+    input[type=submit]:hover {
+      background-color: #3a1b01;
+      color: #623304;
+    }
+
+    /* animation for the container */
+    @keyframes btn-anim1 {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(10px);
+      }
+      60% {
+        transform: translateX(-10px);
+      }
+      80% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    body {
+      background-color: #623304;
+    }
+
+    /* Additional styles */
+    #container {
+      margin-top: 20px;
+    }
+
+    table {
+      margin: 20px auto;
+      font-size: 18px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #050101;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3a1b01;
+      color: #ead000;
+    }
+
+    td {
+      background-color: #ead000;
+      color: #050101;
+    }
+  </style>
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="header">
+    <h2>CRM - Customer Relationship Manager</h2>
+  </div>
+</div>
+
+<div id="container">
+  <h3>Save Customer</h3>
+
+  <form:form action="saveCustomer" modelAttribute="customer" method="POST">
+
+    <!-- need to associate this data with customer id -->
+    <form:hidden path="id" />
+
+    <table>
+      <tbody>
+      <tr>
+        <td><label>First name:</label></td>
+        <td><form:input path="firstName" /></td>
+      </tr>
+
+      <tr>
+        <td><label>Last name:</label></td>
+        <td><form:input path="lastName" /></td>
+      </tr>
+
+      <tr>
+        <td><label>Email:</label></td>
+        <td><form:input path="email" /></td>
+      </tr>
+
+      <tr>
+        <td><label></label></td>
+        <td><input type="submit" value="Save" class="save" /></td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+
+  </form:form>
+
+  <div style="clear; both;"></div>
+
+  <p>
+    <a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+  </p>
+
+</div>
+
+</body>
+
+</html>
+
+

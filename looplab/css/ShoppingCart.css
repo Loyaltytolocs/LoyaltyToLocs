@@ -1,73 +1,186 @@
-/* Basic styles */
-
-body {
-    font-family: Arial, sans-serif;
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
+.navbar-brand {
+    font-size: 2em;
+    color: #3a1b01;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Specific styles for explore section */
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-item {
+    margin-left: 1rem;
+}
+
+.nav-link {
+    color: #3a1b01;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    color: #623304;
+}
+
+/* navbar links */
+#home-section .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(9, 2, 2, 0.7);
+}
+
+/* explore section */
+#explore-section .fas,
+#share-section .fas {
+    background: #3a1b01;
+    color: #fff;
+    padding: 50px;
+    border-radius: 50%;
+}
+
 
 #explore-section {
+    background: #3a1b01;
+    color: #ead000;
+}
+#explore-section img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    display: block;
+    border-radius: 200%;
+    border: 6px solid #050101;
+    box-shadow: 0 0 30px #ead000;
+    transition: box-shadow 3s ease-in-out;
+}
+
+/* my image hover */
+#explore-section img:hover {
+    box-shadow: 0 0 20px #0c218d;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* glow animation */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px #eeff04;
+    }
+    to {
+        box-shadow: 0 0 20px #a60303;
+    }
+}
+#explore-section select {
+    margin-top: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+#explore-section button {
+    background-color: #623304;
+    border: none;
+    border-radius: 25px;
+    color: #f8f4e4;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+#explore-section button:hover {
     background-color: #623304;
 }
 
-#explore-section h3 {
-    margin-top: 0;
+#explore-section table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
 }
 
-#explore-section ol {
+#explore-section table td {
+    border: 1px solid #ead000;
+    padding: 8px;
+    text-align: center;
+}
+
+#explore-section table th {
+    border: 1px solid #ead000;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#cart-section {
+    background-color: #f8f4e4;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#cart-section h3 {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#cart-section ul {
     list-style: none;
     padding-left: 0;
 }
 
-#explore-section select {
+#cart-section li {
     margin-bottom: 10px;
+    font-size: 18px;
 }
 
-#explore-section table {
-    margin-bottom: 10px;
-}
-
-#explore-section button {
-    margin-bottom: 20px;
-}/* Basic styles */
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-/* Specific styles for explore section */
-
-#explore-section {
+#checkout-btn {
     background-color: #623304;
+    border: none;
+    border-radius: 25px;
+    color: #f8f4e4;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
 }
 
-#explore-section h3 {
-    margin-top: 0;
+#checkout-btn:hover {
+    background-color: #f2e389;
+    cursor: pointer;
 }
 
-#explore-section ol {
-    list-style: none;
-    padding-left: 0;
+.sign-in-form, .registration-form {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
 }
 
-#explore-section select {
-    margin-bottom: 10px;
+.checkout-btn {
+    background: #ead000;
+    border: none;
+    border-radius: 25px;
+    color: #3a1b01;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
 }
 
-#explore-section table {
-    margin-bottom: 10px;
-}
-
-#explore-section button {
-    margin-bottom: 20px;
+.checkout-btn:hover {
+    background: #3a1b01;
+    color: #ead000;
+    cursor: pointer;
 }

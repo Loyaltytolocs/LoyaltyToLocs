@@ -23,16 +23,19 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="FrontPage.html" class="nav-link">Welcome</a>
+            <a href="FrontPage.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="Shopping Cart.html" class="nav-link">Shopping Cart</a>
+            <a href="http://localhost:8097/web-customer-tracker/customer/list" class="nav-link">Admin</a>
           </li>
           <li class="nav-item">
-            <a href="#create-head-section" class="nav-link">About Our Company and Owner</a>
+            <a href="http://localhost:8097/spring-crm-rest/" class="nav-link">Rest</a>
           </li>
           <li class="nav-item">
-            <a href="#share-head-section" class="nav-link">Tell us how we are doing!</a>
+            <a href="ex06-jdbc-test" class="nav-link">JDBC</a>
+          </li>
+          <li class="nav-item">
+            <a href="Shopping Cart.html" class="nav-link">Demo Cart</a>
           </li>
         </ul>
       </div>
@@ -52,58 +55,6 @@
       <h1>Welcome to Loyalty To Locs</h1>
     </div>
   </section>
-
-  <!-- EXPLORE SECTION -->
-  <section id="explore-section" class="bg-light text-muted py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="img/Ltl.jpg" alt="" class="img-fluid mb-2">
-        </div>
-        <div class="col-md-6">
-          <h3>Hair Products Available</h3>
-          <ol>
-            <li>Growth Oil</li>
-            <li>Loc Gel</li>
-            <li>Loc Cream</li>
-            <br />
-            <select id="hair-products">
-              <option>Choose Products...</option>
-              <option value="1">Growth Oil $30.00</option>
-              <option value="2">Loc Gel $25.00</option>
-              <option value="3">Loc Cream $25.00</option>
-              <option value="4">Oil spray $20.00</option>
-            </select>
-            <button id="add-to-cart" onclick="addToCart()">Add to Cart</button>
-            <br>
-          </ol>
-
-          <h3>Pure Silk Night Accessories</h3>
-          <table>
-            <tr><th>Pure Silk Bonnets</th><th>Pure Silk Durags</th><th>Pure Silk Loc Caps</th><th>Pure Silk Pillow Cases</th></tr>
-            <tr><td>$15.00<input type="checkbox" id="silk-bonnets"></td><td>$15.00<input type="checkbox" id="silk-durags"></td><td>$20.00<input type="checkbox" id="silk-loc-caps"></td><td>$45.00<input type="checkbox" id="silk-pillow-cases"></td></tr>
-          </table>
-          <button onclick="addToCart()">Add to Cart</button>
-          <br>
-          <hr>
-          <hr>
-          <h3>Payment Options</h3>
-            <ol>
-                <li>Cash</li>
-                <li>Paypal</li>
-                <li>Apple Pay</li>
-                <li>Google Pay</li>
-                <li>Visa</li>
-                <li>Mastercard</li>
-                <li>Discover</li>
-                <li>American Express</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CREATE HEAD -->
   <section id="create-head-section" class="bg-yellow text-white py-5">
     <div class="container">

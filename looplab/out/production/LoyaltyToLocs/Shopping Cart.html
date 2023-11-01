@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Shopping Cart</title>
+    <link rel="stylesheet" href="css/ShoppingCart.css">
+</head>
+<body>
+<section id="explore-section" class="bg-light text-muted py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="img/Ltl.jpg" alt="" class="img-fluid mb-2">
+            </div>
+            <div style="text-align: center;">
+            <div class="col-md-6">
+                <h3>Hair Products Available</h3>
+                <ol>
+                    <tr>
+                        <th>Growth Oil</th>
+                        <th>Loc Gel</th>
+                        <th>Loc Butter</th>
+                        <th>Oil Spray</th>
+                    </tr>
+                    <br />
+                    <select id="hair-products">
+                        <option>Choose Products...</option>
+                        <option value="1">Growth Oil $30.00</option>
+                        <option value="2">Loc Gel $25.00</option>
+                        <option value="3">Loc Cream $25.00</option>
+                        <option value="4">Oil spray $20.00</option>
+                    </select>
+                    <button id="add-to-cart">Add to Cart</button>
+                    <br>
+                </ol>
+
+                <h3>Pure Silk Night Accessories</h3>
+                <table>
+                    <tr>
+                        <th>Pure Silk Bonnets</th>
+                        <th>Pure Silk Durags</th>
+                        <th>Pure Silk Loc Caps</th>
+                        <th>Pure Silk Pillow Cases</th>
+                    </tr>
+                    <tr>
+                        <td>$15.00<input type="checkbox" id="silk-bonnets"></td>
+                        <td>$15.00<input type="checkbox" id="silk-durags"></td>
+                        <td>$20.00<input type="checkbox" id="silk-loc-caps"></td>
+                        <td>$45.00<input type="checkbox" id="silk-pillow-cases"></td>
+                    </tr>
+                </table>
+                <button id="add-to-cart-silk">Add to Cart</button>
+                <br>
+                <hr>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cart-section" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="cart-container">
+                    <h3>Cart</h3>
+                    <ul>
+                        <li>Your cart is currently empty.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Cart object to store the products and quantities
+    var cart = {};
+
+    // Add to cart button for hair products
+    var addToCartBtn = document.getElementById("add-to-cart");
+    addToCartBtn.addEventListener("click", function() {
+        var selectEl = document.getElementById("hair-products");
+        var selectedProduct = selectEl.options[selectEl.selectedIndex].value;
+        if (cart[selectedProduct]) {
+            cart[selectedProduct] += 1;
+        } else {
+            cart[selectedProduct] = 1;
+        }
+        updateCartDisplay();
+    });
+    // Add to cart button for silk products
+    var addToCartSilk = document.querySelector('#add-to-cart-silk');
+    addToCartSilk.addEventListener('click', function() {
+        // Get the selected silk product's ID and quantity
+        var silkProduct = document.querySelector('#silk-product');
+        var silkProductId = silkProduct.dataset.productId;
+        var silkProductQuantity = parseInt(silkProduct.value);
+
+        // Add the product and quantity to the cart
+        cart.addItem(silkProductId, silkProductQuantity);
+
+        // Update the cart icon and total
+        updateCartIcon();
+        updateCartTotal();
+    });
+
+    // Add to cart button for cotton products
+    var addToCartCot = document.querySelector('#add-to-cart-cotton');
+    addToCartCot.addEventListener('click', function() {
+        // Get the selected cotton product's ID and quantity
+        var cottonProduct = document.querySelector('#cotton-product');
+        var cottonProductId = cottonProduct.dataset.productId;
+        var cottonProductQuantity = parseInt(cottonProduct.value);
+
+        // Add the product and quantity to the cart
+        cart.addItem(cottonProductId, cottonProductQuantity);
+
+        // Update the cart icon and total
+        updateCartIcon();
+        updateCartTotal();
+    });
+
+    // Update the cart icon and total
+    function updateCartIcon() {
+        var cartIcon = document.querySelector('.cart-icon');
+        var itemCount = cart.getTotalItemCount();
+        cartIcon.textContent = itemCount;
+    }
+
+    function updateCartTotal() {
+        var cartTotal = document.querySelector('.cart-total');
+        var total = cart.getTotalPrice();
+        cartTotal.textContent = '$' + total.toFixed(2);
+    }
+</script>
