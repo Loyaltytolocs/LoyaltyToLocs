@@ -1,79 +1,26 @@
-package com.mycapstone.hibernate.demo.entity;
+package MyArrayofObjects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+    // Creating a student class with
+    // id and name as a attributes
 
-@Entity
-@Table(name="student")
-public class Student {
+class Student {
+public int id;
+public String name;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	
-	@Column(name="first_name")
-	private String firstName;
-	
-	@Column(name="last_name")
-	private String lastName;
-	
-	@Column(name="email")
-	private String email;
-	
-	public Student() {
-		
-	}
+    // student class constructor
+    Student(int id, String name)
+    {
 
-	public Student(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
+        this.id = id;
+        this.name = name;
+    }
 
-	public int getId() {
-		return id;
-	}
+    // display() method to display
+    // the student data
+    public void display()
+    {
+        System.out.println("student id is:" + id +"" + "and Student name is:" + name);
+        System.out.println();
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
-	}
-	
 }
-
-
-
-
